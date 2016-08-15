@@ -16,8 +16,7 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
           zoom: '@',
           mousezoom: '@',
           update: '=',
-          ngModel: '=',
-          cropped: '='
+          ngModel: '='
         },
         link: function(scope, elem, attr) {
 
@@ -71,14 +70,6 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                       scope.ngModel = img
                     })
                   })
-                  
-                  if (scope.cropped != undefined){
-                    c.result({type: 'canvas', size: 'original'}).then(function(img){
-                      scope.$apply(function(){
-                        scope.cropped = img
-                      })
-                    })
-                  }
                 }, 250);
 
                 scope.$on("$destroy",
