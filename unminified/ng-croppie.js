@@ -65,7 +65,7 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                 // create new croppie and settime for updates
                 var c = new Croppie(elem[0], options);
                 var intervalID = window.setInterval(function(){
-                  c.result('canvas').then(function(img){
+                  c.result({type: 'canvas', size: 'original'}).then(function(img){
                     scope.$apply(function(){
                       scope.ngModel = img
                     })
