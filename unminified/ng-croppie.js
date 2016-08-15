@@ -70,7 +70,7 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                       scope.ngModel = img
                     })
                   })
-                }, 250);
+                }, 500);
 
                 scope.$on("$destroy",
                     function( event ) {
