@@ -65,12 +65,12 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                 // create new croppie and settime for updates
                 var c = new Croppie(elem[0], options);
                 var intervalID = window.setInterval(function(){
-                  c.result({type: 'canvas', size: 'original'}).then(function(img){
+                  c.result({type: 'canvas', size: 'original', format: 'jpeg', quality: 0.6}).then(function(img){
                     scope.$apply(function(){
                       scope.ngModel = img
                     })
                   })
-                }, 500);
+                }, 750);
 
                 scope.$on("$destroy",
                     function( event ) {
@@ -82,7 +82,7 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                 scope.$watch('src', function(newValue, oldValue) {
                     if(scope.src != undefined){
                           c.bind(scope.src);
-                          c.result('canvas').then(function(img){
+                          c.result({type: 'canvas', size: 'original', format: 'jpeg', quality: 0.6}).then(function(img){
                             scope.$apply(function(){
                               scope.ngModel = img
                             })
